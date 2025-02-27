@@ -1,13 +1,11 @@
 package com.bridgelabz.employeepayrollapp.controller;
-
 /*
-Use Case : 3
-This is Rest Controller file to ensure that data is transmitted in REST calls
-Note that Controller in UC3 was creating the Model and returning the Model on the REST Calls.
+Use Case : 4
+This is Rest Controller file to ensure that data is transmitted in REST calls.
+Note that Controller in UC4 was calling services layer to manage the Model.
+Service Layer: creating the Model and returning the Model on the REST Calls(Controller).
 Database is not used.
-Service layer is not used
 */
-
 import com.bridgelabz.employeepayrollapp.dto.EmployeeDTO;
 import com.bridgelabz.employeepayrollapp.model.Employee;
 import org.springframework.web.bind.annotation.*;
