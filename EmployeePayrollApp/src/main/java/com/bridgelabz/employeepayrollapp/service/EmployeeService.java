@@ -32,9 +32,19 @@ public class EmployeeService {
 
         String name=employeeDTO.getName();
         double salary=employeeDTO.getSalary();
+        String gender=employeeDTO.getGender();
+        String profilePic=employeeDTO.getProfilePic();
+        String note = employeeDTO.getNote();
+        String startDate=employeeDTO.getStartDate();
+        List<String> department=employeeDTO.getDepartment();
 
         employee.setName(name);
         employee.setSalary(salary);
+        employee.setGender(gender);
+        employee.setProfilePic(profilePic);
+        employee.setNote(note);
+        employee.setStartDate(startDate);
+        employee.setDepartment(department);
 
         employees.add(employee);
         return employee;
@@ -47,12 +57,32 @@ public class EmployeeService {
             }
             String name = employeeDTO.getName();
             double salary = employeeDTO.getSalary();
+            String gender=employeeDTO.getGender();
+            String startDate=employeeDTO.getStartDate();
+            String note= employeeDTO.getNote();
+            String profilePic= employeeDTO.getProfilePic();
+            List<String>department=employeeDTO.getDepartment();
 
             if (!name.isEmpty()) {
                 employee.setName(name);
             }
             if (salary > 0) {
                 employee.setSalary(salary);
+            }
+            if(!gender.isEmpty()) {
+            	employee.setGender(gender);
+            }
+            if(!startDate.isEmpty()) {
+            	employee.setStartDate(profilePic);
+            }
+            if(!profilePic.isEmpty()){
+            	employee.setProfilePic(profilePic);
+            }
+            if(!note.isEmpty()) {
+            	employee.setNote(note);
+            }
+            if(!department.isEmpty()) {
+            	employee.setDepartment(department);
             }
             return employee;
     }

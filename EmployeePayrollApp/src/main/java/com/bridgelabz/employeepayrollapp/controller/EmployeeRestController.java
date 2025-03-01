@@ -1,13 +1,5 @@
 package com.bridgelabz.employeepayrollapp.controller;
 
-/*
-Use Case : 5
-This is Rest Controller file to ensure that data is transmitted in REST calls.
-Ability for the Services Layer to store the Employee Payroll Data
-In this use case the Services Layer will store this Data in a Memory as a List.
-Database is not used.
-*/
-
 import com.bridgelabz.employeepayrollapp.dto.EmployeeDTO;
 import com.bridgelabz.employeepayrollapp.model.Employee;
 import com.bridgelabz.employeepayrollapp.service.EmployeeService;
@@ -47,14 +39,14 @@ public class EmployeeRestController {
  @PostMapping("/create")
  public String creatingEmployeeRecord(@Valid @RequestBody EmployeeDTO employeeDTO){
      Employee employee=employeeService.createEmployeeRecord(employeeDTO);
-     return "Created employee record\nname = " + employee.getName() + "\nsalary = " + employee.getSalary();
+     return "Created employee record\nname = " + employee.getName() + "\nsalary = " + employee.getSalary() + "\ngender = " + employee.getGender() + "\ndepartment = " + employee.getDepartment() + "\nstartDate = " + employee.getStartDate() + "\nnote = " + employee.getNote() + "\nprofilePic = " + employee.getProfilePic();
  }
 
  @PutMapping("/update/{id}")
  public String updatingEmployeeDetails(@Valid @PathVariable long id,@RequestBody EmployeeDTO employeeDTO) {
      Employee employee = employeeService.updateEmployeeRecord(id, employeeDTO);
      if (employee != null) {
-         return "Updated employee record\nname = " + employee.getName() + "\nsalary = " + employee.getSalary();
+         return "Updated employee record\nname = " + employee.getName() + "\nsalary = " + employee.getSalary() + employee.getSalary() + "\ngender = " + employee.getGender() + "\ndepartment = " + employee.getDepartment() + "\nstartDate = " + employee.getStartDate() + "\nnote = " + employee.getNote() + "\nprofilePic = " + employee.getProfilePic();
      } else {
          return "Employee record not found";
      }
