@@ -1,6 +1,7 @@
 package com.bridgelabz.employeepayrollapp.service;
 
 import com.bridgelabz.employeepayrollapp.dto.EmployeeDTO;
+import com.bridgelabz.employeepayrollapp.exception.EmployeePayrollException;
 import com.bridgelabz.employeepayrollapp.model.Employee;
 
 import java.util.ArrayList;
@@ -22,7 +23,8 @@ public class EmployeeService {
     }
 
     public Employee getEmployeeDetailsByID(long id) {
-        return employees.get(((int)id)-1);
+    	return employees.stream().filter(empData->empData.getId()==id).findFirst().orElseThrow(()->new EmployeePayrollException("Employee Not Found"));
+      
     }
 
     public Employee createEmployeeRecord(EmployeeDTO employeeDTO){
