@@ -11,6 +11,9 @@ Database is not used.
 import com.bridgelabz.employeepayrollapp.dto.EmployeeDTO;
 import com.bridgelabz.employeepayrollapp.model.Employee;
 import com.bridgelabz.employeepayrollapp.service.EmployeeService;
+
+import jakarta.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -42,13 +45,13 @@ public class EmployeeRestController {
  }
 
  @PostMapping("/create")
- public String creatingEmployeeRecord(@RequestBody EmployeeDTO employeeDTO){
+ public String creatingEmployeeRecord(@Valid @RequestBody EmployeeDTO employeeDTO){
      Employee employee=employeeService.createEmployeeRecord(employeeDTO);
      return "Created employee record\nname = " + employee.getName() + "\nsalary = " + employee.getSalary();
  }
 
  @PutMapping("/update/{id}")
- public String updatingEmployeeDetails(@PathVariable long id,@RequestBody EmployeeDTO employeeDTO) {
+ public String updatingEmployeeDetails(@Valid @PathVariable long id,@RequestBody EmployeeDTO employeeDTO) {
      Employee employee = employeeService.updateEmployeeRecord(id, employeeDTO);
      if (employee != null) {
          return "Updated employee record\nname = " + employee.getName() + "\nsalary = " + employee.getSalary();
