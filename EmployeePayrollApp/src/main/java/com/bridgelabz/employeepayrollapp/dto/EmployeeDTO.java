@@ -1,4 +1,6 @@
 package com.bridgelabz.employeepayrollapp.dto;
+import java.util.List;
+
 import jakarta.validation.constraints.*;
 
 public  class EmployeeDTO {
@@ -12,7 +14,7 @@ public  class EmployeeDTO {
    
    public EmployeeDTO(String name,long salary) {
 	   this.name = name;
-	   this.salary= salary;
+	   this.salary=salary;
     }
    public String getName() {
 	   return name;
