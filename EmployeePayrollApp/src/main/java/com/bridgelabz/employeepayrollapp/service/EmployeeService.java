@@ -4,6 +4,7 @@ import com.bridgelabz.employeepayrollapp.dto.EmployeeDTO;
 import com.bridgelabz.employeepayrollapp.exception.EmployeePayrollException;
 import com.bridgelabz.employeepayrollapp.model.Employee;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class EmployeeService {
         String gender=employeeDTO.getGender();
         String profilePic=employeeDTO.getProfilePic();
         String note = employeeDTO.getNote();
-        String startDate=employeeDTO.getStartDate();
+        LocalDate startDate=employeeDTO.getStartDate();
         List<String> department=employeeDTO.getDepartment();
 
         employee.setName(name);
@@ -58,7 +59,7 @@ public class EmployeeService {
             String name = employeeDTO.getName();
             double salary = employeeDTO.getSalary();
             String gender=employeeDTO.getGender();
-            String startDate=employeeDTO.getStartDate();
+            LocalDate startDate=employeeDTO.getStartDate();
             String note= employeeDTO.getNote();
             String profilePic= employeeDTO.getProfilePic();
             List<String>department=employeeDTO.getDepartment();
@@ -72,9 +73,11 @@ public class EmployeeService {
             if(!gender.isEmpty()) {
             	employee.setGender(gender);
             }
-            if(!startDate.isEmpty()) {
+            /*if(!startDate.isEmpty()) {
             	employee.setStartDate(startDate);
-            }
+            }*/
+            	employee.setStartDate(startDate);
+  
             if(!profilePic.isEmpty()){
             	employee.setProfilePic(profilePic);
             }
