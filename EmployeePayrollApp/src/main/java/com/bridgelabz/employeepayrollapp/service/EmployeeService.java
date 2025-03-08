@@ -73,10 +73,11 @@ public class EmployeeService {
             if(!gender.isEmpty()) {
             	employee.setGender(gender);
             }
-            /*if(!startDate.isEmpty()) {
-            	employee.setStartDate(startDate);
-            }*/
-            	employee.setStartDate(startDate);
+            
+            if (startDate != null) { 
+                employee.setStartDate(startDate);
+            }
+
   
             if(!profilePic.isEmpty()){
             	employee.setProfilePic(profilePic);
