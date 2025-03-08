@@ -1,5 +1,6 @@
 package com.bridgelabz.employeepayrollapp.model;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -15,7 +16,7 @@ public @Data class Employee {
     private String name;
     private double salary;
     public String gender;
-    public String startDate;
+    public LocalDate startDate;
     public String note;
     public String profilePic;
     public List<String>department;
@@ -34,7 +35,7 @@ public @Data class Employee {
     public String getGender() {
     	return gender;
     }
-    public String getStartDate() {
+    public LocalDate getStartDate() {
     	return startDate;
     }
 
@@ -64,7 +65,7 @@ public @Data class Employee {
 	}
 
 
-	public void setStartDate(String startDate) {
+	public void setStartDate(LocalDate startDate) {
 		this.startDate = startDate;
 	}
 
