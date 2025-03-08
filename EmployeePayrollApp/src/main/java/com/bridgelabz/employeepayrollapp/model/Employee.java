@@ -18,9 +18,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
+
+@Data
 @Entity
 @Table(name="employee_payroll")
-public @Data class Employee {
+public class Employee {
 
     private static long idcounter=1;
     @Id
@@ -125,14 +127,19 @@ public @Data class Employee {
 		
 		return id;
 	}
-	 public Employee(EmployeeDTO employeeDTO){
-	       this.name=employeeDTO.getName();
-	       this.salary=employeeDTO.getSalary();
-	       this.gender=employeeDTO.getGender();
-	       this.startDate=employeeDTO.getStartDate();
-	       this.note=employeeDTO.getNote();
-	       this.profilePic=employeeDTO.getProfilePic();
-	       this.department=employeeDTO.getDepartment();
-	    }
-	
+
+    public Employee(EmployeeDTO employeeDTO){
+      this.updateEmployeeData(employeeDTO);
+    }
+
+    public void updateEmployeeData(EmployeeDTO employeeDTO){
+        this.name=employeeDTO.getName();
+        this.salary=employeeDTO.getSalary();
+        this.gender=employeeDTO.getGender();
+        this.startDate=employeeDTO.getStartDate();
+        this.note=employeeDTO.getNote();
+        this.profilePic=employeeDTO.getProfilePic();
+        this.department=employeeDTO.getDepartment();
+    }
 }
+	
